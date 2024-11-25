@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My dictionary</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Добавить новое слово</h1>
+
+        <!-- Отображение ошибки, если есть -->
+        {% if error %}
+        <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            <label for="word1">Слово на оригинальном языке:</label><br>
+            <input type="text" id="word1" name="word1" required><br><br>
+
+            <label for="word2">Перевод:</label><br>
+            <input type="text" id="word2" name="word2" required><br><br>
+
+            <button type="submit">Добавить слово</button>
+        </form>
+        <br>
+        <a href="{% url 'home' %}">На главную</a>
+    </div>
+</body>
+</html>

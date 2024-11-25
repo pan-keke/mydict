@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My dictionary</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Добро пожаловать в My dictionary</h1>
+    <p>Это приложение позволяет добавлять и просматривать иностранные слова с переводом.</p>
+    <a href="{% url 'words_list' %}">Посмотреть список слов</a><br>
+    <a href="{% url 'add_word' %}">Добавить новое слово</a>
+</body>
+</html>

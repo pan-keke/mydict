@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My dictionary</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Список слов</h1>
+    <table class="words_list" border="1">
+        <tr>
+            <th>Слово</th>
+            <th>Перевод</th>
+        </tr>
+        {% for word in words %}
+        <tr>
+            <td>{{ word.word }}</td>
+            <td>{{ word.translation }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{% url 'home' %}">На главную</a>
+</body>
+</html>
